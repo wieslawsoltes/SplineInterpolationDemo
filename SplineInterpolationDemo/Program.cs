@@ -1,12 +1,11 @@
-﻿using System;
-using MathNet.Numerics.Interpolation;
-
-// https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Interpolation/CubicSpline.cs
+﻿// https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Interpolation/CubicSpline.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Interpolation/IInterpolation.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Interpolation/SplineBoundaryCondition.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Sorting.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Precision.Equality.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Precision.cs
+using System;
+using MathNet.Numerics.Interpolation;
 
 namespace SplineInterpolationDemo
 {
