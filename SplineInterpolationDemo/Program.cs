@@ -5,6 +5,7 @@
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Precision.Equality.cs
 // https://github.com/mathnet/mathnet-numerics/blob/master/src/Numerics/Precision.cs
 using System;
+using System.Linq;
 using MathNet.Numerics.Interpolation;
 
 namespace SplineInterpolationDemo
@@ -13,20 +14,46 @@ namespace SplineInterpolationDemo
     {
         static void Main(string[] args)
         {
-            double[] x = new double[13];
-            double[] y = new double[13];
-            Console.WriteLine($"X Y");
-            for (int i = 0; i <= 12; i++)
+            double[] x = new double[]
             {
-                x[i] = i * Math.PI / 12;
-                y[i] = Math.Sin(x[i]);
+                2,
+                6,
+                18,
+                36,
+                72,
+                144,
+                432,
+                1008
+            };
+
+            double[] y = new double[]
+            {
+                123,
+                117,
+                107,
+                92,
+                33,
+                32,
+                8,
+                7
+            };
+
+            Console.WriteLine($"X Y");
+            for (int i = 0; i < x.Length; i++)
+            {
                 Console.WriteLine($"{x[i]} {y[i]}");
             }
+
             var spline = CubicSpline.InterpolateNaturalSorted(x, y);
-            double testX = 1.5 * Math.PI / 12;
-            double testY = spline.Interpolate(testX);
+
             Console.WriteLine($"Interpolated:");
-            Console.WriteLine($"{testX} {testY}");
+            var min = x.Min();
+            var max = x.Max();
+            for (double t = min; t <= max; t += 1)
+            {
+                double interpolated = spline.Interpolate(t);
+                Console.WriteLine($"{t} {interpolated}");
+            }
         }
     }
 }
