@@ -7,6 +7,7 @@
 using System;
 using System.Linq;
 using MathNet.Numerics.Interpolation;
+using MathNet.Numerics.LinearRegression;
 
 namespace SplineInterpolationDemo
 {
@@ -61,6 +62,13 @@ namespace SplineInterpolationDemo
                 double interpolated = spline.Interpolate(t);
                 Console.WriteLine($"{t} {interpolated}");
             }
+
+            // var (a, b) = SimpleRegression.Fit(x, y);
+            // for (double t = min; t <= max; t += 1)
+            // {
+            //     double interpolated = a + b * t;
+            //     Console.WriteLine($"{t} {interpolated}");
+            // }
         }
     }
 }
