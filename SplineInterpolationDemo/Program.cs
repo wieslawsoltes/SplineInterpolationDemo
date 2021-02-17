@@ -50,12 +50,14 @@ namespace SplineInterpolationDemo
             var max = x.Max();
   
             //var spline = CubicSpline.InterpolateNaturalSorted(x, y);
+            //var spline = CubicSpline.InterpolateAkimaSorted(x, y);
+            var spline = CubicSpline.InterpolatePchipSorted(x, y);
             //var spline = LinearSpline.InterpolateSorted(x, y);
             //var spline = NevillePolynomialInterpolation.InterpolateSorted(x, y);
             //var spline = Barycentric.InterpolateRationalFloaterHormannSorted(x, y);
             //var spline = BulirschStoerRationalInterpolation.InterpolateSorted(x, y);
             //var spline = LogLinear.InterpolateSorted(x, y);
-            var spline = StepInterpolation.InterpolateSorted(x, y);
+            //var spline = StepInterpolation.InterpolateSorted(x, y);
 
             for (double t = min; t <= max; t += 1)
             {
