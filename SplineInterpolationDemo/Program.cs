@@ -44,11 +44,18 @@ namespace SplineInterpolationDemo
                 Console.WriteLine($"{x[i]} {y[i]}");
             }
 
-            var spline = CubicSpline.InterpolateNaturalSorted(x, y);
-
             Console.WriteLine($"Interpolated:");
             var min = x.Min();
             var max = x.Max();
+  
+            //var spline = CubicSpline.InterpolateNaturalSorted(x, y);
+            //var spline = LinearSpline.InterpolateSorted(x, y);
+            //var spline = NevillePolynomialInterpolation.InterpolateSorted(x, y);
+            //var spline = Barycentric.InterpolateRationalFloaterHormannSorted(x, y);
+            //var spline = BulirschStoerRationalInterpolation.InterpolateSorted(x, y);
+            //var spline = LogLinear.InterpolateSorted(x, y);
+            var spline = StepInterpolation.InterpolateSorted(x, y);
+
             for (double t = min; t <= max; t += 1)
             {
                 double interpolated = spline.Interpolate(t);
