@@ -46,9 +46,7 @@ namespace SplineInterpolationDemo
             }
 
             Console.WriteLine($"Interpolated:");
-            var min = x.Min();
-            var max = x.Max();
-  
+
             //var spline = CubicSpline.InterpolateNaturalSorted(x, y);
             //var spline = CubicSpline.InterpolateAkimaSorted(x, y);
             var spline = CubicSpline.InterpolatePchipSorted(x, y);
@@ -59,6 +57,8 @@ namespace SplineInterpolationDemo
             //var spline = LogLinear.InterpolateSorted(x, y);
             //var spline = StepInterpolation.InterpolateSorted(x, y);
 
+            var min = x.Min();
+            var max = x.Max();
             for (double t = min; t <= max; t += 1)
             {
                 double interpolated = spline.Interpolate(t);
