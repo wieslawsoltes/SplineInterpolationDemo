@@ -1,0 +1,2 @@
+https://www.codeproject.com/Articles/560163/Csharp-Cubic-Spline-Interpolation
+-https://github.com/mathnet/mathnet-numerics/tree/master/src/Numerics/Interpolation

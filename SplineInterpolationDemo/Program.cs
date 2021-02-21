@@ -62,15 +62,66 @@ namespace SplineInterpolationDemo
             for (double t = min; t <= max; t += 1)
             {
                 double interpolated = spline.Interpolate(t);
-                Console.WriteLine($"{t} {interpolated}");
+                //Console.WriteLine($"{t} {interpolated}");
             }
 
+           
             // var (a, b) = SimpleRegression.Fit(x, y);
             // for (double t = min; t <= max; t += 1)
             // {
             //     double interpolated = a + b * t;
             //     Console.WriteLine($"{t} {interpolated}");
             // }
+
+            Test2();
+        }
+
+        static void Test2()
+        {
+            float[] x = new float[]
+            {
+                2,
+                6,
+                18,
+                36,
+                72,
+                144,
+                432,
+                1008
+            };
+
+            float[] y = new float[]
+            {
+                123,
+                117,
+                107,
+                92,
+                33,
+                32,
+                8,
+                7
+            };
+
+            
+            var min = x.Min();
+            var max = x.Max();
+            var xs = new float[(int)(max - min) + 1];
+            int j = 0;
+            for (float t = min; t <= max; t += 1)
+            {
+                xs[j] = t;
+                j++;
+            }
+
+            var spline = new TestMySpline.CubicSpline();
+            float[] ys = spline.FitAndEval(x, y, xs);
+            
+            //TestMySpline.CubicSpline.FitParametric(x, y, 1000, out var xs, out var ys);
+
+            for (int i = 0; i < xs.Length; i++)
+            {
+                Console.WriteLine($"{xs[i]} {ys[i]}");
+            }
         }
     }
 }
